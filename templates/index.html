@@ -87,7 +87,7 @@
 <form action="result" method="post"> {% csrf_token %}
 <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">PClass</label>
-  <input type='number' class="form-control" id="exampleFormControlInput1" name="P_class" placeholder="P-Class (1,2,3)">
+  <input type='number' class="form-control" id="exampleFormControlInput1" name="P_class" placeholder="P-Class (0,1,2,3)">
 </div>
 
 <div class="mb-3">
@@ -98,6 +98,16 @@
 <div class="mb-3">
   <label for="exampleFormControlInput3" class="form-label">Sex</label>
   <input type="number" class="form-control" id="exampleFormControlInput3" name="Sex" placeholder="0 for male 1 for female">
+</div>
+
+<div class="mb-3">
+  <label for="exampleFormControlInput3" class="form-label">Parch</label>
+  <input type="number" class="form-control" id="exampleFormControlInput4" name="Parch" placeholder="Parch (0 to 6)">
+</div>
+
+<div class="mb-3">
+  <label for="exampleFormControlInput3" class="form-label">Embarked</label>
+  <input type="number" class="form-control" id="exampleFormControlInput5" name="Embarked" placeholder="Embarked(0,1,2)">
 </div><br>
 
 <!--Button    -->
@@ -112,7 +122,7 @@
       <i class="icon-info-sign"></i>
 
       <span class="extra-info">
-        This Prediction is based on only 3 features as model is trained on these 3 features
+        This Prediction is based on only 5 features as model is trained on these 5 features
       </span>
     </div><br />
 

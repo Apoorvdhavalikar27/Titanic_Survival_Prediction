@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+# from django.http import HttpResponse
 import pickle
 
 
@@ -10,20 +10,21 @@ def home(request):
 
 def predict(request):
 
-    Pclass = request.POST.get('P_class')
-    Age = request.POST.get("Age")
-    Sex = request.POST.get("Sex")
+    p_class = request.POST.get('P_class')
+    age = request.POST.get("Age")
+    sex = request.POST.get("Sex")
+    parch = request.POST.get('Parch')
+    embarked = request.POST.get('Embarked')
 
-    data = [Age, Sex, Pclass]
+    data = [age, sex, p_class, parch, embarked]
     print(data)
 
     with open("model_pickle", 'rb') as f:
-        My_model = pickle.load(f)
+        my_model = pickle.load(f)
 
-    prediction = My_model.predict([data])
+    prediction = my_model.predict([data])
     print(prediction)
 
-    survived = ""
 
     if prediction == [0]:
         survived = "Not Survived"
@@ -38,4 +39,3 @@ def predict(request):
             "result": survived
         }
         return render(request, "result.html", params)
-
